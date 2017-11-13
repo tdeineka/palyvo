@@ -5,11 +5,11 @@ html
     link(rel='stylesheet', href='/css/style.css')
   body
     -if (session)
-      div(width="100%")
+      div(width="100%" style="border-bottom: 2px solid grey;")
         a(href="/") Домівка 
         -if (session.role=='ADMIN' || session.role=='MASTER')
           a(href="/users") Користувачі 
-        span(align="right")
+        div(style="float:right;")
           a(href="/users/#{session.id }")= session.name
           a(href="/logout")  Вийти 
     block content
