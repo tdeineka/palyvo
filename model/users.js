@@ -15,7 +15,6 @@ module.exports = {
       db (query, function (err, rows) {
           if (err) return cb (err);
           else {
-              users = rows;
               cb (null, rows);
           }
       });
