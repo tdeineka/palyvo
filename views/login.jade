@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Увійдіть у програму
+  form(method="post")
+    table
+      tr
+        td(align="right") нік
+        td
+          input(type="text" name="username" maxlength="#{config.user.name.maxlength}")
+      tr
+        td(align="right") пароль
+        td
+          input(type="password" name="password" maxlength="#{config.user.password.maxlength}")
+      tr
+        td
+        td
+          input(type="submit")

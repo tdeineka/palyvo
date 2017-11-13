@@ -1,0 +1,26 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #222;
+  text-decoration: none;
+}
+
+table.bordered {
+  border-collapse: collapse;
+}
+.bordered th {
+  border: 2px solid #aaa;
+  background: #ddd;
+  padding: 5px;
+  text-align: left;
+}
+.bordered td {
+  border: 1px solid #aaa;
+  padding: 5px;
+}
+.nonBordered td {
+  border: none;
+}

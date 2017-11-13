@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Зареєстровані користувачі
+  table.bordered
+    tr
+      th Користувач
+      th Роль
+    each user in rows
+      tr
+        td
+          a(href="users/#{user.id}")= user.name
+        td
+          a(href="users/#{user.id}")= user.role
+  p
+    button(onclick="window.location='/users/add'") Додати користувача

@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  -var title = user.id ? 'Користувач' : 'Додати користувача';
+  h1= title
+  form(method="post" action="/users")
+    -if (user.id)
+      input(type="hidden" name="id" value="#{user.id}")
+    table.bordered
+      tr
+        th Ім'я
+        td.nonBordered
+          input(name="name" value="#{user.name}" maxlength="#{config.user.name.maxlength}")
+      tr
+        th Пароль
+        td.nonBordered
+          input(name="password" value="#{user.password}" maxlength="#{config.user.password.maxlength}")
+      tr
+        th Роль
+        td.nonBordered
+          select(name="role")
+            each role in config.user.roles
+              -if (role == user.role)
+                option(value="#{role}" selected)= role
+              -else
+                option(value="#{role}")= role
+    p
+      input(type="submit" value="Зберігти")
+  -if (user.id)
+    p
+      form(method="post" action="/users")
+        input(type="hidden" name="id" value="#{user.id}")
+        input(type="submit" value="Вилучити")
+  p
+    button(onclick="window.location='/users'") Скасувати
