@@ -7,7 +7,11 @@ const express = require('express')
     ;
 
 router.get('/', function (req, res, next) {
-    res.render('login', { session: req.session.passport.user, config: config });
+    res.render('login', { session: req.session.passport
+                                 ? req.session.passport.user
+                                 : false
+                        , config: config
+                        });
 });
 
 passport.serializeUser ((userAndRole, done) => done (null, userAndRole));   // [2]

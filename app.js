@@ -39,7 +39,7 @@ app.use (passport.session());
 
 app.use (function (req, res, next) {
     const login = '/login';
-    if (! req.session.passport.user && req.path != login)
+    if ((! req.session.passport || ! req.session.passport.user) && req.path != login)
         res.redirect (login);
     else next();
 });
